@@ -89,10 +89,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
   body #rating-container #inner-rating-container .rating .stars .star {
-    width: 19%;
+    width: 14.6%;
     display: flex;
   }
   body #rating-container #inner-rating-container .rating .rating-text {
