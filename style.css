@@ -48,6 +48,7 @@
     font-weight: 700;
     padding-right: 5rem;
     letter-spacing: -0.09rem;
+    line-height: 3.2rem;
   }
   body #phrase-container .sub-heading {
     grid-row: 2;
@@ -64,7 +65,7 @@
     grid-column: 3;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 3% 1fr 29.6%;
+    grid-template-rows: 5% 1fr 29.6%;
     /*            background-color: cyan; */
   }
   body #rating-container #inner-rating-container {
@@ -120,7 +121,7 @@
     justify-content: space-between;
   }
   body #testimonial-container .testimonial {
-    height: 87.3%;
+    height: 88.6%;
     width: 31.5%;
     background-color: #502050;
     display: grid;

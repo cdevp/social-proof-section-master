@@ -17,7 +17,7 @@ $neutral-white: hsl(0, 0%, 100%);
 $phrase-container-w: 39.6%;
 $phrase-container-h: 38.25%; 
 $testimonial-container-w: 100%;
-$testimonial-height: 87.3%;
+$testimonial-height: 88.6%;
 $testimonial-width: 31.5%;
 $rating-container-w: 100%;
 $rating-inner-h: 65.8%;
@@ -97,6 +97,7 @@ $p-testimonial-h: 31.7%;
                 font-weight: 700;
                 padding-right: 5rem;
                 letter-spacing: -0.09rem;
+                line-height: 3.2rem;
             }
             .sub-heading {
                 grid-row: 2;
@@ -116,7 +117,7 @@ $p-testimonial-h: 31.7%;
             grid-column: 3;
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 3% 1fr 29.6%;
+            grid-template-rows: 5% 1fr 29.6%;
 /*            background-color: cyan; */
 
             #inner-rating-container {
