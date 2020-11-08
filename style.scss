@@ -4,6 +4,7 @@
     transform: $property
 }
 
+
 $font-stack: Spartan, sans-serif;
 $font-size: 15px;
 $primary-magenta: hsl(300, 43%, 22%);
@@ -11,6 +12,8 @@ $primary-pink: hsl(333, 80%, 67%);
 $neutral-magenta: hsl(303, 10%, 53%);
 $neutral-light-magenta: hsl(300, 24%, 96%);
 $neutral-white: hsl(0, 0%, 100%);
+
+/* landscape view vars */
 $phrase-container-w: 39.6%;
 $phrase-container-h: 38.25%; 
 $testimonial-container-w: 100%;
@@ -27,21 +30,40 @@ $rating-height: 27.5%;
 $rating-width: 82.15%;
 
 $top-bg-w: 40.3%;
-$bottom-bg-w: 75.4%;
+$bottom-bg-w: 100%;
 
-@media (min-width: 800px) {
+/* profile view vars */
+
+$p-top-bg-h: 15.2%;
+$p-bottom-bg-w: 100%;
+$sidebar-w: 6.1%;
+$p-top-bar-h: 5%;
+$p-bottom-bar-h: 6.5%;
+$p-phrase-container-h: 16.9%;
+$p-heading-h: 47.7%;
+$p-rating-container-h: 20.1%;
+$p-rating-h: 29.4%;
+$p-testimonial-container-h: 51%;
+$p-testimonial-h: 31.7%;
+
+@media (min-width: 1170px) {
     html, body {
         font-family: $font-stack;
         font-size: $font-size;
         width: 100%;
         height: 100%;
         overflow: hidden;
+        min-height: 765px;
     }
 
     body {
         display: grid;
         grid-template-columns: $left-bar-w $phrase-container-w 1fr $right-bar-w;
         grid-template-rows: $top-bar-h $phrase-container-h 1fr $bottom-bar-h; 
+
+        #mobile-top-bg, #mobile-bottom-bg {
+            display: none;
+        }
 
         #top-bg {
             position: absolute;
@@ -122,7 +144,8 @@ $bottom-bg-w: 75.4%;
                         justify-content: space-evenly;
 
                         .star {
-                            height: 30%;
+                            width: 19%;
+                            display: flex;
                         }
                     } 
 
@@ -166,11 +189,10 @@ $bottom-bg-w: 75.4%;
                 border-radius: 10px;
 
                 .portrait {
-                    display: grid;
+                    display: flex;
                     grid-row: 2;
                     grid-column: 2;
-                    grid-template-columns: 14.1% 1fr;
-                    grid-template-rows: repeat(2, 1fr);
+                    flex-direction: row;
 
                     .photo {
                         grid-row: 1 / span 2;
@@ -178,24 +200,25 @@ $bottom-bg-w: 75.4%;
                         height: 100%;
                         border-radius: 20px;
                     }
-                    
-                    .portrait-name {
-                        color: $neutral-white;
-                        font-weight: 700;
-                        grid-row: 1;
-                        grid-column: 2;
-                        font-size: 0.9rem;
-                        padding-top: 1%;
-                        padding-left: 1.5rem;
-                    }
 
-                    .portrait-description {
-                        color: $primary-pink;
-                        grid-row: 2;
-                        grid-column: 2;
-                        font-size: 0.9rem;
-                        padding-top: 0.3rem;
-                        padding-left: 1.5rem;
+                    .portrait-text {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+    
+                        .portrait-name {
+                            color: $neutral-white;
+                            font-weight: 700;
+                            font-size: 0.9rem;
+                            padding-top: 1%;
+                            padding-left: 1.5rem;
+                        }
+
+                        .portrait-description {
+                            color: $primary-pink;
+                            font-size: 0.9rem;
+                            padding-left: 1.5rem;
+                        }
                     }
                 }
 
@@ -216,6 +239,188 @@ $bottom-bg-w: 75.4%;
 
             .testimonial:nth-child(3) {
                 align-self: flex-end;
+            }
+        }
+    }
+}
+
+@media (max-width: 1169px) {
+    html, body {
+        font-family: $font-stack;
+        font-size: $font-size;
+        width: 100%;
+        height: 100%;
+        overflow: scroll;
+    }
+
+    body {
+        display: grid;
+        grid-template-columns: $sidebar-w 1fr $sidebar-w;
+        grid-template-rows: $p-top-bar-h $p-phrase-container-h $p-rating-container-h
+            $p-testimonial-container-h 1fr;
+        min-width: 375px;
+        min-height: 1290px;
+
+        #top-bg, #bottom-bg {
+            display: none;
+        }
+
+        #mobile-top-bg {
+            position: absolute;
+            height: $p-top-bg-h;
+            top: 0%;
+            left: 0%;
+            z-index: -1;
+        }
+
+        #mobile-bottom-bg {
+            position: absolute;
+            width: $p-bottom-bg-w;
+            right: 0%;
+            bottom: 0%;
+            z-index: -1;
+        }
+
+        #phrase-container {
+            grid-row: 2;
+            grid-column: 2;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: $p-heading-h 1fr;
+/*            background-color: green; */
+
+            .heading {
+                grid-row: 1;
+                grid-column: 1;
+                color: $primary-magenta;
+                font-size: 2.2rem;
+                font-weight: 700;
+                letter-spacing: -0.09rem;
+                text-align: center;
+            }
+            .sub-heading {
+                grid-row: 2;
+                grid-column: 1;
+                color: $neutral-magenta;
+                font-weight: 500;
+                line-height: 1.7rem;
+                padding-top: 0.7rem;
+                letter-spacing: -0.04rem;
+                text-align: center;
+                padding-right: 0.2rem;
+            }
+
+        }
+
+        #rating-container {
+            grid-row: 3;
+            grid-column: 2;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 16.7%;
+/*            background-color: cyan; */
+
+            #inner-rating-container {
+                grid-row: 1;
+                grid-column: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .rating {
+                    height: $p-rating-h;
+                    width: 100%;
+                    background-color: $neutral-light-magenta;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    border-radius: 10px;
+
+                    .stars {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        width: 35%;
+
+                        .star {
+                            display: flex;
+                        }
+                    } 
+
+                    .rating-text {
+                        display: flex;
+                        align-items: center; 
+                        color: $primary-magenta;
+                        font-size: 0.9rem;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+
+        #testimonial-container {
+            width: $testimonial-container-w;
+/*            background-color: black; */
+            grid-row: 4;
+            grid-column: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .testimonial {
+                height: $p-testimonial-h;
+                width: 100%;
+                background-color: $primary-magenta;
+                display: grid;
+                grid-template-columns: 7.8% 1fr 8.2%;
+                grid-template-rows: 17.5% 15.0% 11.5% 1fr 17.9%;
+                border-radius: 10px;
+
+                .portrait {
+                    display: flex;
+                    grid-row: 2;
+                    grid-column: 2;
+                    flex-direction: row;
+
+                    .photo {
+                        grid-row: 1 / span 2;
+                        grid-column: 1;
+                        height: 100%;
+                        border-radius: 20px;
+                    }
+
+                    .portrait-text {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+    
+                        .portrait-name {
+                            color: $neutral-white;
+                            font-weight: 700;
+                            font-size: 0.9rem;
+                            padding-top: 1%;
+                            padding-left: 1.5rem;
+                        }
+
+                        .portrait-description {
+                            color: $primary-pink;
+                            font-size: 0.9rem;
+                            padding-top: 0.25rem;
+                            padding-left: 1.5rem;
+                        }
+                    }
+                }
+
+                .testimonial-text {
+                    grid-row: 4;
+                    grid-column: 2;
+                    color: $neutral-light-magenta;
+                    font-size: 0.85rem;
+                    font-weight: 500;
+                    letter-spacing: .01rem;
+                    line-height: 1.5rem;
+                }
             }
         }
     }

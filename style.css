@@ -1,16 +1,22 @@
-@media (min-width: 800px) {
+/* landscape view vars */
+/* profile view vars */
+@media (min-width: 1170px) {
   html, body {
     font-family: Spartan, sans-serif;
     font-size: 15px;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    min-height: 765px;
   }
 
   body {
     display: grid;
     grid-template-columns: 11.45% 39.6% 1fr 11.25%;
     grid-template-rows: 15.625% 38.25% 1fr 13.75%;
+  }
+  body #mobile-top-bg, body #mobile-bottom-bg {
+    display: none;
   }
   body #top-bg {
     position: absolute;
@@ -21,7 +27,7 @@
   }
   body #bottom-bg {
     position: absolute;
-    width: 75.4%;
+    width: 100%;
     right: 0%;
     bottom: 0%;
     z-index: -1;
@@ -86,7 +92,8 @@
     justify-content: space-evenly;
   }
   body #rating-container #inner-rating-container .rating .stars .star {
-    height: 30%;
+    width: 19%;
+    display: flex;
   }
   body #rating-container #inner-rating-container .rating .rating-text {
     grid-row: 1;
@@ -122,11 +129,10 @@
     border-radius: 10px;
   }
   body #testimonial-container .testimonial .portrait {
-    display: grid;
+    display: flex;
     grid-row: 2;
     grid-column: 2;
-    grid-template-columns: 14.1% 1fr;
-    grid-template-rows: repeat(2, 1fr);
+    flex-direction: row;
   }
   body #testimonial-container .testimonial .portrait .photo {
     grid-row: 1/span 2;
@@ -134,21 +140,21 @@
     height: 100%;
     border-radius: 20px;
   }
-  body #testimonial-container .testimonial .portrait .portrait-name {
+  body #testimonial-container .testimonial .portrait .portrait-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  body #testimonial-container .testimonial .portrait .portrait-text .portrait-name {
     color: white;
     font-weight: 700;
-    grid-row: 1;
-    grid-column: 2;
     font-size: 0.9rem;
     padding-top: 1%;
     padding-left: 1.5rem;
   }
-  body #testimonial-container .testimonial .portrait .portrait-description {
+  body #testimonial-container .testimonial .portrait .portrait-text .portrait-description {
     color: #ee68a4;
-    grid-row: 2;
-    grid-column: 2;
     font-size: 0.9rem;
-    padding-top: 0.3rem;
     padding-left: 1.5rem;
   }
   body #testimonial-container .testimonial .testimonial-text {
@@ -165,6 +171,166 @@
   }
   body #testimonial-container .testimonial:nth-child(3) {
     align-self: flex-end;
+  }
+}
+@media (max-width: 1169px) {
+  html, body {
+    font-family: Spartan, sans-serif;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+  }
+
+  body {
+    display: grid;
+    grid-template-columns: 6.1% 1fr 6.1%;
+    grid-template-rows: 5% 16.9% 20.1% 51% 1fr;
+    min-width: 375px;
+    min-height: 1290px;
+  }
+  body #top-bg, body #bottom-bg {
+    display: none;
+  }
+  body #mobile-top-bg {
+    position: absolute;
+    height: 15.2%;
+    top: 0%;
+    left: 0%;
+    z-index: -1;
+  }
+  body #mobile-bottom-bg {
+    position: absolute;
+    width: 100%;
+    right: 0%;
+    bottom: 0%;
+    z-index: -1;
+  }
+  body #phrase-container {
+    grid-row: 2;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 47.7% 1fr;
+    /*            background-color: green; */
+  }
+  body #phrase-container .heading {
+    grid-row: 1;
+    grid-column: 1;
+    color: #502050;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.09rem;
+    text-align: center;
+  }
+  body #phrase-container .sub-heading {
+    grid-row: 2;
+    grid-column: 1;
+    color: #937b92;
+    font-weight: 500;
+    line-height: 1.7rem;
+    padding-top: 0.7rem;
+    letter-spacing: -0.04rem;
+    text-align: center;
+    padding-right: 0.2rem;
+  }
+  body #rating-container {
+    grid-row: 3;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 16.7%;
+    /*            background-color: cyan; */
+  }
+  body #rating-container #inner-rating-container {
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  body #rating-container #inner-rating-container .rating {
+    height: 29.4%;
+    width: 100%;
+    background-color: #f7f2f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
+  }
+  body #rating-container #inner-rating-container .rating .stars {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 35%;
+  }
+  body #rating-container #inner-rating-container .rating .stars .star {
+    display: flex;
+  }
+  body #rating-container #inner-rating-container .rating .rating-text {
+    display: flex;
+    align-items: center;
+    color: #502050;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  body #testimonial-container {
+    width: 100%;
+    /*            background-color: black; */
+    grid-row: 4;
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  body #testimonial-container .testimonial {
+    height: 31.7%;
+    width: 100%;
+    background-color: #502050;
+    display: grid;
+    grid-template-columns: 7.8% 1fr 8.2%;
+    grid-template-rows: 17.5% 15% 11.5% 1fr 17.9%;
+    border-radius: 10px;
+  }
+  body #testimonial-container .testimonial .portrait {
+    display: flex;
+    grid-row: 2;
+    grid-column: 2;
+    flex-direction: row;
+  }
+  body #testimonial-container .testimonial .portrait .photo {
+    grid-row: 1/span 2;
+    grid-column: 1;
+    height: 100%;
+    border-radius: 20px;
+  }
+  body #testimonial-container .testimonial .portrait .portrait-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  body #testimonial-container .testimonial .portrait .portrait-text .portrait-name {
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding-top: 1%;
+    padding-left: 1.5rem;
+  }
+  body #testimonial-container .testimonial .portrait .portrait-text .portrait-description {
+    color: #ee68a4;
+    font-size: 0.9rem;
+    padding-top: 0.25rem;
+    padding-left: 1.5rem;
+  }
+  body #testimonial-container .testimonial .testimonial-text {
+    grid-row: 4;
+    grid-column: 2;
+    color: #f7f2f7;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.01rem;
+    line-height: 1.5rem;
   }
 }
 
